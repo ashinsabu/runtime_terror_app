@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 //TODO: fill out colors according to colour scheme picked
 //TODO: test out edge cases of login security
+//NOTE: Sign up functionality is not needed. It is better to have pharmacist application process that will be reviewed by third party,
+//      verified and then added to the userlist.
 class loginPage extends StatefulWidget {
   @override
   State<loginPage> createState() => _loginPageState();
