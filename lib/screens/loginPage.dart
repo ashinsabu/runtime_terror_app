@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:runtime_terror_app/services/authentication_service.dart';
 import 'package:runtime_terror_app/theme.dart';
@@ -36,7 +37,7 @@ class _loginPageState extends State<loginPage> {
         .width;
 
     return Scaffold(
-      // backgroundColor: AppColor.neongreen,
+      backgroundColor: AppColor.neongreen,
       resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.fromLTRB(
@@ -65,7 +66,7 @@ class _loginPageState extends State<loginPage> {
                   style: TextStyle(
                     fontSize: 56,
                     fontWeight: FontWeight.bold,
-                    color: AppColor.kellygreen,
+                    color: Colors.white,
                     shadows: [
                       Shadow(
                         offset: Offset(1.0, 2.0),
@@ -86,6 +87,8 @@ class _loginPageState extends State<loginPage> {
                 },
                 // onSaved: (input) { _email = input; print(_email);},
                 controller: emailController,
+                cursorColor: Colors.black,
+
                 decoration: InputDecoration(
                   labelText: 'Email',
                   prefixIcon: Icon(Icons.account_box_rounded),
@@ -115,8 +118,8 @@ class _loginPageState extends State<loginPage> {
               SizedBox(height: 20,),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.grey,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                  primary: AppColor.kellygreen,
+                  padding: EdgeInsets.symmetric(horizontal: 70, vertical: 20),
                   textStyle: TextStyle(
                       fontSize: 16, fontWeight: FontWeight.bold),
                 ),
@@ -128,6 +131,22 @@ class _loginPageState extends State<loginPage> {
                       ).then((bool loggedin){ setState(() { loginFail=loggedin;}); print(loggedin);});
                 },
               ),
+              SizedBox(height: height*0.02,),
+              RichText(
+                  text: TextSpan(
+                    style: TextStyle(color: Colors.black, fontSize: 16),
+                    text: 'No account? ',
+                    children: [
+                      TextSpan(
+                        recognizer: TapGestureRecognizer()
+                            ..onTap = () {},
+                        text: 'Apply for One.',
+                        style: TextStyle(decoration: TextDecoration.underline, color: Colors.blueAccent)
+                      )
+                    ]
+
+                  )
+              )
 
             ],
           ),
